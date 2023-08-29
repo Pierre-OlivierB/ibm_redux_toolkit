@@ -25,7 +25,6 @@ const Form = ({ getPictures }) => {
       .post("http://localhost:5000/pictures", data)
       .then(() => {
         dispatch(addPicture(data));
-
         formRef.current.reset();
       })
       .then(() => {
