@@ -7,7 +7,7 @@ import { setPictureData } from "./feature/pictures.slice";
 
 const App = () => {
   const dispatch = useDispatch();
-  const picsData = useSelector();
+  const picsData = useSelector((state) => state.pictures.pictures);
   useEffect(() => {
     axios
       .get("http://localhost:5000/pictures")
