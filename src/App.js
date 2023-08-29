@@ -8,16 +8,21 @@ import { setPictureData } from "./feature/pictures.slice";
 const App = () => {
   const dispatch = useDispatch();
   const picsData = useSelector((state) => state.pictures.pictures);
-  useEffect(() => {
+
+  const getPictures = () => {
     axios
       .get("http://localhost:5000/pictures")
       .then((res) => dispatch(setPictureData(res.data)));
+  };
+
+  useEffect(() => {
+    getPictures();
   }, []);
 
   return (
     <>
       <h1>NFT Gallery</h1>
-      <Form />
+      <Form getPictures={getPictures} />
       <div className="cards-container">
         {picsData?.map((pic, index) => (
           <PicCard key={index} pic={pic} />
