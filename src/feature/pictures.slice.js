@@ -6,8 +6,8 @@ export const picturesSlice = createSlice({
     pictures: null,
   },
   reducers: {
-    setPictureData: (state, action) => {
-      state.pictures = action.payload;
+    setPictureData: (state, { payload }) => {
+      state.pictures = payload;
     },
   },
 });
